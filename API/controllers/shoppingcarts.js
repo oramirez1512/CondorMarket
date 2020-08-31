@@ -9,10 +9,10 @@ const stringQuery =`
 async function addToCart(prodId,cartId,quantity,cartDetId,userId)
 {
     try{
-    console.log('userId:'+userId);
-    const res = await query(stringQuery,[prodId,cartId,quantity,cartDetId,userId]);
-    console.log('res'+res);
-    return "product is added";
+        console.log('userId:'+userId);
+        const res = await query(stringQuery,[prodId,cartId,quantity,cartDetId,userId]);
+        console.log('res'+res);
+        return "product is added";
     }catch(err)
     {
         console.log(err);

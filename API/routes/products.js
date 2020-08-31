@@ -5,8 +5,8 @@ const router = express.Router();
 //Get all products
 router.get('/', async(req,res)=>{
     try{
-    const rows= await products.products();
-    res.json(rows);
+        const rows= await products.products();
+        res.json(rows);
     }
     catch (err)
     {
@@ -56,41 +56,4 @@ router.get('/:productid',async(req, res)=>{
     }     
 });
 
-/*
-router.post('/',(req,res)=>{
-    const {productid,name, categoryid} =req.body;    
-    const query =`
-        
-        call productAddOrEdit(?,?,?);
-    `;
-    mySQLConnection.query(query,[productid, name, categoryid], (err,rows, fields)=>{
-        if (!err){
-            res.json({status:"Product saved"});
-        }
-        else{
-            console.error(err);
-        }
-    });
-});
-
-router.put('/:id',(req,res)=>{
-
-    const {productid} = req.params;
-    console.log(productid);
-    const {name, categoryid} =req.body;
-    const query =`
-        
-    call productAddOrEdit(?,?,?);
-    `;
-
-    mySQLConnection.query(query,[productid, name, categoryid],(err,rows,fields)=>{
-        if(!err){
-            res.json({status:"Product updated"});    
-        }else{
-            console.error(err);
-        }
-    });
-    
-});
-*/
 module.exports = router;

@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oramirez1512/CondorMarket.git"
+    "url": "git+https://github.com/oramirez1512/OrMarket.git"
   },
   "author": "oramirez1512",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/oramirez1512/CondorMarket/issues"
+    "url": "https://github.com/oramirez1512/OrMarket/issues"
   },
-  "homepage": "https://github.com/oramirez1512/CondorMarket#readme",
+  "homepage": "https://github.com/oramirez1512/OrMarket#readme",
   "dependencies": {
     "express": "^4.17.1",
     "mysql": "^2.18.1"

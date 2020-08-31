@@ -14,6 +14,6 @@ app.set('port', process.env.PORT ||3000);
 //Middlewares
 app.use(express.json());
 //Route Middlewares
-app.use('/api/condormarket', productsRoute,shoppingcartsRoute);
+app.use('/api/ormarket', productsRoute,shoppingcartsRoute);
 
 app.listen(3000, ()=>console.log('Up and running'));

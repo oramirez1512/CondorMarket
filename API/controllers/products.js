@@ -33,4 +33,30 @@ async function prodsByColvalue(column,value) {
         } 
     
 }
-module.exports = {products,prodsByColvalue}
+
+async function getCategories()
+{
+    try
+    {
+        const res=await query('select * from categories'); 
+        return res;
+    }
+    catch(err)
+    {
+        return err;
+    }
+}
+
+async function getCategory(categoryid)
+{
+    try
+    {
+        const res=await query('select * from categories where categoryid =?',categoryid); 
+        return res;
+    }
+    catch(err)
+    {
+        return err;
+    }
+}
+module.exports = {products,prodsByColvalue,getCategories,getCategory}

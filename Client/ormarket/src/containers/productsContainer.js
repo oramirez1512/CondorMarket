@@ -8,7 +8,7 @@ class ProductsContainer extends Component {
       };
     componentDidMount() {
         const {productid} = this.props;
-        fetch('http://localhost:3000/api/ormarket/'+productid)
+        fetch('http://localhost:3000/api/ormarket/product/'+productid)
             .then(res => res.json())
             .then((data) => {
                 this.setState({ products: data })

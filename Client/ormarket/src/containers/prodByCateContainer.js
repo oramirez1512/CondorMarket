@@ -8,7 +8,7 @@ class ProdByCateContainer extends Component
       };
     componentDidMount() {
         const {categoryid} = this.props;
-        fetch('http://localhost:3000/api/ormarket/category/'+categoryid)
+        fetch('http://localhost:3000/api/ormarket//product/category/'+categoryid)
             .then(res => res.json())
             .then((data) => {
                 this.setState({ products: data })

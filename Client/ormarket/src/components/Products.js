@@ -1,17 +1,32 @@
 import React from 'react'
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import Button from '@material-ui/core/Button';
+import ProductDetails from './productDetails'
+
+const handleAdd =require('../actions/index');
 
 const Products = ({products}) => {
     return (
         <div>
             {products.map((product) => (
-                <div className="card">
-                    <div className="card-body">
-                        <h5 className="card-title">{product.name}</h5>
-                        <h6 className="card-subtitle mb-2 text-muted">{product.description}</h6>
-                        <p className="card-text">{'price: $'+product.price}</p>
-                        <p className="card-text">{'quantity in store: '+product.quantity}</p>
-                    </div>
-                </div>
+                <Card>
+                    <CardActionArea>                    
+                        <ProductDetails
+                        name ={product.name}
+                        description={product.description}
+                        quantity ={product.quantity+"in store"}
+                        price ={product.price}
+                         urlimage ={product.urlimage}/>
+                        <CardActions>
+                            <Button size="small" color="primary"
+                                onClick={() => 
+                                    {handleAdd.addToCart(product.productid)}} 
+                            >+</Button>
+                        </CardActions>
+                    </CardActionArea>
+                </Card>
             ))}
         </div>
     )

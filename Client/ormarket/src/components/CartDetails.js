@@ -1,20 +1,43 @@
 import React from 'react'
-import ProductsContainer from '../containers/productsContainer';
-
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import Button from '@material-ui/core/Button';
+import ProductDetails from './productDetails'
+import Typography from '@material-ui/core/Typography';
+  
+const handleRemove =require('../actions/index');
+function removeFromCart(cardName) {
+    if (document.getElementById(cardName)) {
+        document.getElementById(cardName).style.width = "0";
+        document.getElementById(cardName).style.height = "0";
+    }
+    handleRemove.removeAproduct(cardName);
+  };
 const CartDetails = ({cartDetails}) => {
     return (
         <div>
-            <center><h1>Cart Details</h1></center>
+            <Typography>
+            <center><h1>Cart details</h1></center>
+            </Typography>
             {cartDetails.map((cartDetail) => (
-                <div className="card">
-                    <div className="card-body">
-                        <h5 className="card-title">{'product #: '+cartDetail.shoppingcartid}</h5>
-                        <p className="card-text">{'price: $'+cartDetail.purchaseprice}</p>
-                        <ProductsContainer productid={cartDetail.productid}></ProductsContainer>
-                        <p className="card-text">{'quantity in store: '+cartDetail.quantity}</p>
-                    </div>
-                </div>
-            ))}
+               <Card id={cartDetail.cartdetailid}>
+               <CardActionArea>                    
+                   <ProductDetails
+                   name ={cartDetail.name}
+                   description={""}
+                   quantity ={cartDetail.quantity}
+                   price ={cartDetail.purchaseprice}
+                    urlimage ={cartDetail.urlimage}/>
+                   <CardActions>
+                       <Button size="small" color="primary"
+                           onClick={() => 
+                            {removeFromCart(cartDetail.cartdetailid)}} 
+                       >-</Button>
+                   </CardActions>
+               </CardActionArea>
+           </Card>
+            ))}        
         </div>
     )
 };

@@ -1,9 +1,15 @@
 import React from 'react'
-import Products from '../components/Products';
 
-const Categories = ({products}) => {
+const Categories = ({name, description}) => {
     return(
-    <Products products = {{products}}/>
+        <div>
+            <div className="card">
+                <div className="card-body">
+                    <h5 className="card-title">{'name: '+name}</h5>
+                    <p className="card-text">{'description: '+description}</p>
+                </div>
+            </div>
+        </div>
     )
 
 };

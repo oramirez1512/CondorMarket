@@ -1,15 +1,16 @@
 const express = require('express');
 const app = express();
+var cors = require('cors')
 
 
 //Import routes
-//const authRoute= require('./routes/auth');
 const productsRoute = require('./routes/products');
 const shoppingcartsRoute = require('./routes/shoppingcarts');
 
 
 //settings
 app.set('port', process.env.PORT ||3000);
+app.use(cors());
 
 //Middlewares
 app.use(express.json());

@@ -14,7 +14,7 @@ router.get('/product/', async(req,res)=>{
     }
 });
 ///Get products given a name
-router.get('/product/:name',async(req, res)=>{
+router.get('/product/name/:name',async(req, res)=>{
     const {name} = req.params;
     console.log(name)
     try{

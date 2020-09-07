@@ -18,25 +18,26 @@ const CartDetails = ({cartDetails}) => {
     return (
         <div>
             <Typography>
-            <center><h1>Cart details</h1></center>
+                <center><h1>Cart details</h1></center>
             </Typography>
             {cartDetails.map((cartDetail) => (
                <Card id={cartDetail.cartdetailid}>
-               <CardActionArea>                    
-                   <ProductDetails
-                   name ={cartDetail.name}
-                   description={""}
-                   quantity ={cartDetail.quantity}
-                   price ={cartDetail.purchaseprice}
-                    urlimage ={cartDetail.urlimage}/>
-                   <CardActions>
-                       <Button size="small" color="primary"
-                           onClick={() => 
-                            {removeFromCart(cartDetail.cartdetailid)}} 
-                       >-</Button>
-                   </CardActions>
-               </CardActionArea>
-           </Card>
+                    <CardActionArea>                    
+                        <ProductDetails
+                        name ={cartDetail.name}
+                        description={""}
+                        quantity ={cartDetail.quantity}
+                        price ={cartDetail.purchaseprice}
+                        urlimage ={cartDetail.urlimage}/>
+                        <CardActions>
+                            <Button size="small" color="primary"
+                                onClick={() => 
+                                    {removeFromCart(cartDetail.cartdetailid)}} 
+                                >Remove
+                            </Button>
+                        </CardActions>
+                    </CardActionArea>
+                </Card>
             ))}        
         </div>
     )

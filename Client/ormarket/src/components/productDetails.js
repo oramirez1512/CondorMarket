@@ -7,7 +7,7 @@ const ProductDetails = ({name,description, quantity, price,urlimage}) => {
         <CardContent>
             <Image size="mini" src={urlimage} width={200} height={200}/>
             <Typography gutterBottom variant="h5" component="h2">
-            {name}
+                {name}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
                 {description}

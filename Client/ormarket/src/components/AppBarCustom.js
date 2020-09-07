@@ -67,71 +67,77 @@ const useStyles = makeStyles((theme) => ({
 }));    
 
 const AppBarCustom = ()=>{
-    const classes = useStyles();
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const open = Boolean(anchorEl);
-    const handleMenu = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-    const handleClose = () => {
-        setAnchorEl(null);
-    };   
+  const classes = useStyles();
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleMenu = (event) => {
+      setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+      setAnchorEl(null);
+  };   
 
-    return(
-      <div className={classes.root}>
-        <AppBar Title ="OR Market" position='static'>
-          <Toolbar>
+  return(
+    <div className={classes.root}>
+      <AppBar Title ="OR Market" position='static'>
+        <Toolbar>
+          <IconButton edge="start" 
+          className={classes.menuButton} 
+          color="inherit" aria-label="menu">
+              <MenuIcon 
+              onClick={handleMenu}/>
+          </IconButton>              
+          <Menu
+              id="menu-appbar"
+              anchorEl={anchorEl}
+              anchorOrigin={{
+              vertical: 'top',
+              horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+              vertical: 'top',
+              horizontal: 'right',
+              }}
+              open={open}
+              onClose={handleClose}
+          >
+              <Link  to="/">
+                  <MenuItem  onClick={handleClose}>Home</MenuItem>
+              </Link>
+              <Link  to="/Categories">
+                  <MenuItem  onClick={handleClose}>Categories</MenuItem>
+              </Link>
+              <Link to="/Cart">
+              <MenuItem onClick={handleClose}>My cart</MenuItem>
+              </Link>
+          </Menu>
+          <Typography className={classes.title} variant="h6" noWrap>
+              OR-Market
+          </Typography>
+          <div className={classes.search}>
             <IconButton edge="start" 
-            className={classes.menuButton} 
-            color="inherit" aria-label="menu">
-                <MenuIcon 
-                onClick={handleMenu}/>
-            </IconButton>              
-            <Menu
-                id="menu-appbar"
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-                }}
-                open={open}
-                onClose={handleClose}
-            >
-                <Link  to="/">
-                    <MenuItem  onClick={handleClose}>Home</MenuItem>
-                </Link>
-                <Link  to="/Categories">
-                    <MenuItem  onClick={handleClose}>Categories</MenuItem>
-                </Link>
-                <Link to="/Cart">
-                <MenuItem onClick={handleClose}>My cart</MenuItem>
-                </Link>
-            </Menu>
-            <Typography className={classes.title} variant="h6" noWrap>
-                OR-Market
-            </Typography>
-            <div className={classes.search}>
+              className={classes.menuButton} 
+              color="inherit" aria-label="menu">
               <div className={classes.searchIcon}>
-                  <SearchIcon />        
+                <Link to="/">                
+                 <SearchIcon />
+                </Link>
               </div>
-              <InputBase
-                  placeholder="Search…"
-                  classes={{
-                    root: classes.inputRoot,
-                    input: classes.inputInput,
-                  }}
-                  inputProps={{ 'aria-label': 'search' }}                
-              />
-            </div>
-          </Toolbar>
-    </AppBar>
-  </div>
-    )
+            </IconButton>
+            <InputBase
+                placeholder="Search…"
+                classes={{
+                  root: classes.inputRoot,
+                  input: classes.inputInput,
+                }}
+                inputProps={{ 'aria-label': 'search' }}                
+              />  
+          </div>
+        </Toolbar>
+      </AppBar>
+    </div>
+  )
 
 };
 export default AppBarCustom

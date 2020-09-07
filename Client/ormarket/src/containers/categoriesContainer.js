@@ -20,13 +20,14 @@ class CategoriesContainer extends Component {
       render () {
         return (
               <div>                
-              <center><h1>Categories</h1></center>
-              {this.state.categories.map((category) => (
-                <div>
-                <Categories name={category.name} description ={category.description}/>                    
-                <p><ProdByCateContainer categoryid={category.categoryid} /></p>
-                </div>
-            ))}
+                  <center><h1>Categories</h1></center>
+                  {this.state.categories.map((category) => (
+                    <div>
+                      <p><Categories name={category.name} description ={category.description}/>                    
+                        <ProdByCateContainer categoryid={category.categoryid} />
+                      </p>
+                    </div>
+                ))}
             </div>
         );
       }

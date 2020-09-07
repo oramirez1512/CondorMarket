@@ -5,7 +5,8 @@ class CartDetailsContainer extends Component {
 
     state = {
         cartDetails: []
-      };
+    };
+    
     componentDidMount() {
         const {shoppingcartid} = this.props;
         fetch('http://localhost:3000/api/ormarket/shoppingcart/'+shoppingcartid)

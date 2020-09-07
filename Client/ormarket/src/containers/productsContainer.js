@@ -5,7 +5,8 @@ class ProductsContainer extends Component {
     
     state = {
         products: []
-      };
+    };
+    
     componentDidMount() {
         const {productid} = this.props;
         fetch('http://localhost:3000/api/ormarket/product/'+productid)

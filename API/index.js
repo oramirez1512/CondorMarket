@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+var cors = require('cors')
 
 
 //Import routes
@@ -10,6 +11,7 @@ const shoppingcartsRoute = require('./routes/shoppingcarts');
 
 //settings
 app.set('port', process.env.PORT ||3000);
+app.use(cors());
 
 //Middlewares
 app.use(express.json());

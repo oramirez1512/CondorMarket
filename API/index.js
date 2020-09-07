@@ -4,7 +4,6 @@ var cors = require('cors')
 
 
 //Import routes
-//const authRoute= require('./routes/auth');
 const productsRoute = require('./routes/products');
 const shoppingcartsRoute = require('./routes/shoppingcarts');
 

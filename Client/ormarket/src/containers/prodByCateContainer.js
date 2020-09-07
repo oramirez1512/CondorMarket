@@ -5,10 +5,10 @@ class ProdByCateContainer extends Component
 {
     state = {
         products: []
-      };
+    };
     componentDidMount() {
         const {categoryid} = this.props;
-        fetch('http://localhost:3000/api/ormarket//product/category/'+categoryid)
+        fetch('http://localhost:3000/api/ormarket/product/category/'+categoryid)
             .then(res => res.json())
             .then((data) => {
                 this.setState({ products: data })
@@ -18,9 +18,9 @@ class ProdByCateContainer extends Component
 
       render () {
         return (
-            <div>
-        <center><h1>products in category</h1></center>
-          <Products products={this.state.products} />
+          <div>
+            <center><h1>products in category</h1></center>
+            <Products products={this.state.products} />
           </div>
         );
       }

@@ -22,7 +22,7 @@ function addToCart(productId)
 {
     let bodyreq=
     {
-        prodId:productId,
+        prodId:productId["productid"],
         cartId:"4",
         quantity:"1",
         cartDetId:"0",
